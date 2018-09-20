@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Molecule Visualizer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <style>
+      body {
+        margin: 2em
+      }
+      #window {
+        /*position:fixed;*/
+      }
+      #scripter {
+        display:inline-block;
+        float:left;
+        right:0;
+      }
+      #menu-add {
+        display:inline-block;
+        left: 0;
+        float:right;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Molecule Visualizer</h1>
+    <p>
+      Created by Jacob Weinstein
+    </p>
+    <table id = "t-full" class="table table-striped">
+      <tr>
+        <th>Element</th>
+        <th>Number of Particles</th>
+        <th>Percent Composition by Mass</th>
+      </tr>
+      <tr id="t-actual"></tr>
+    </table>
+    <p id="mass-p"></p>
+		<div id="warning-DNE"></div>
+    <p></p>
+    <div id="window">
+      <div id="scripter">
+        <script src="worker.js"></script>
+      </div>
+      <div id="menu-add" class="card">
+
+        <div class="card-header">
+          <div class="card-title h5">Title aaaaaaaaaaaaaa</div>
+          <div class="card-subtitle text-gray">Subtitle</div>
+        </div>
+        <div class="card-body">
+          <ul class="tab tab-block">
+            <li class="tab-item active">
+              <a href="#" onclick="openTab('edit',event)">Edit</a>
+            </li>
+            <li class="tab-item">
+              <a href="#" onclick="openTab('export',event)">Export</a>
+            </li>
+          </ul>
+          <div id="edit" class="tab-result" style="display:inline-block">
+            edit
+          </div>
+          <div id="export" class="tab-result" style="display:none">
+            <a id="downloader" download="image.png"><button type="button" class="btn" onClick="download()">Download image</button></a>
+          </div>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-primary">Action</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
